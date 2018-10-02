@@ -60,4 +60,8 @@ public class Calculator {
         return p / i;
     }
 
+    public double uAusPundR(Double p, Double r) {
+        return Math.sqrt(p * r);
+    }
+
 }
