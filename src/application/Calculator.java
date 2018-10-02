@@ -33,6 +33,11 @@ public class Calculator {
     return r * (i * i);
   }
 
+  public double iAusPundR(double p, double r) {
+    return Math.sqrt(p / r);
+  }
+
+
   public double getLeistung() {
     return leistung;
   }
