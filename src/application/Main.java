@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 /**
  * Formelrad Application
  *
- * @author Peter Rutschmann
+ * @author Ufuk Arikan, Jan Preisig
  * @version 13.09.2018
  */
 public class Main extends Application {
