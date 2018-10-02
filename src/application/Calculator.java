@@ -56,4 +56,8 @@ public class Calculator {
         return r * i;
     }
 
+    public double uAusPundI(Double p, Double i) {
+        return p / i;
+    }
+
 }
