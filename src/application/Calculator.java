@@ -90,4 +90,17 @@ public class Calculator {
         return Math.sqrt(p * r);
     }
 
+    public double rAusUundI(Double u, Double i) {
+        return u / i;
+    }
+
+    public double rAusPundI(Double p, Double i) {
+        return p / Math.pow(i, i);
+    }
+
+    public double rAusUundP(Double u, Double p) {
+        return Math.pow(u, u) / p;
+    }
+
+
 }
