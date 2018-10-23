@@ -9,9 +9,9 @@ package application;
 public class Calculator {
 
     private final double leistung;
-    private final double spannung;
     private final double strom;
-    private final double widerstand;
+    private double widerstand;
+    private double spannung;
 
     public Calculator(double leistung, double spannung, double strom, double widerstand) {
         super();
@@ -73,6 +73,10 @@ public class Calculator {
         /* Hier auf Grund der vorhanden Werte entscheiden
          * welche Methode unten aufgerufen werden muss.
          */
+        if (leistung != 0 && strom != 0) {
+            spannung = uAusPundI(leistung, strom);
+            widerstand = rAusPundI(leistung, strom);
+        }
     }
 
     /* Hier die Methoden mit den Formlen hinzufügen
