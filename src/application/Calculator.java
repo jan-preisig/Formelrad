@@ -8,8 +8,8 @@ package application;
  */
 public class Calculator {
 
-    private final double leistung;
-    private final double strom;
+    private double leistung;
+    private double strom;
     private double widerstand;
     private double spannung;
 
@@ -76,6 +76,9 @@ public class Calculator {
         if (leistung != 0 && strom != 0) {
             spannung = uAusPundI(leistung, strom);
             widerstand = rAusPundI(leistung, strom);
+        } else if (spannung != 0 && widerstand != 0) {
+            leistung = pAusUundR(spannung, widerstand);
+            strom = iAusUundR(spannung, widerstand);
         }
     }
 
