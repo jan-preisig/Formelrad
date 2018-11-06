@@ -68,9 +68,6 @@ public class Calculator {
   }
 
   public void calculate() {
-    /* Hier auf Grund der vorhanden Werte entscheiden
-     * welche Methode unten aufgerufen werden muss.
-     */
     if (leistung != 0 && strom != 0) {
       spannung = uAusPundI(leistung, strom);
       widerstand = rAusPundI(leistung, strom);
