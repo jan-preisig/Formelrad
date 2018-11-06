@@ -81,6 +81,8 @@ public class Main extends Application {
       btnBerechnen.setText("Berechnen");
       root.getChildren().add(btnBerechnen);
 
+        Label lblWarnung = new Label();
+
       btnBerechnen.setOnAction(e -> {
         Calculator myCalculator = new Calculator(Double.parseDouble(txLeistung.getText()),
             Double.parseDouble(txSpannung.getText()), Double.parseDouble(txStrom.getText()),
