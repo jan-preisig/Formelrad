@@ -21,7 +21,9 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
-  @Override
+    public static Label lblWarnung;
+
+    @Override
   public void start(Stage primaryStage) {
     try {
       Pane root = new Pane();
@@ -81,7 +83,10 @@ public class Main extends Application {
       btnBerechnen.setText("Berechnen");
       root.getChildren().add(btnBerechnen);
 
-        Label lblWarnung = new Label();
+        lblWarnung = new Label();
+        lblWarnung.relocate(125, 445);
+        lblWarnung.setText("");
+        root.getChildren().add(lblWarnung);
 
       btnBerechnen.setOnAction(e -> {
         Calculator myCalculator = new Calculator(Double.parseDouble(txLeistung.getText()),

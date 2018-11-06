@@ -1,5 +1,7 @@
 package application;
 
+import static application.Main.lblWarnung;
+
 /**
  * Berechnet das Formelrad
  *
@@ -69,19 +71,44 @@ public class Calculator {
                 ", widerstand=" + widerstand + "]";
     }
 
+    private boolean warning() {
+        boolean warning = false;
+        boolean fields[] = new boolean[4];
+
+        fields[0] = leistung != 0;
+        fields[1] = spannung != 0;
+        fields[2] = strom != 0;
+        fields[3] = widerstand != 0;
+
+        int count = 0;
+        for (int i = 0; i < fields.length; i++) {
+            if (fields[i] = true) {
+                count++;
+            }
+        }
+        if (count > 2) warning = true;
+
+        return warning;
+    }
+
     public void calculate() {
         /* Hier auf Grund der vorhanden Werte entscheiden
          * welche Methode unten aufgerufen werden muss.
          */
-        if (leistung != 0 && strom != 0) {
-            spannung = uAusPundI(leistung, strom);
-            widerstand = rAusPundI(leistung, strom);
-        } else if (spannung != 0 && widerstand != 0) {
-            leistung = pAusUundR(spannung, widerstand);
-            strom = iAusUundR(spannung, widerstand);
-        } else if (leistung != 0 && spannung != 0) {
-            widerstand = rAusUundP(spannung, leistung);
-            strom = iAusPundU(leistung, spannung);
+        if (warning()) {
+            lblWarnung.setText("Es müssen mindestens 2 Felder 0 sein!");
+        } else {
+            lblWarnung.setText("");
+            if (leistung != 0 && strom != 0) {
+                spannung = uAusPundI(leistung, strom);
+                widerstand = rAusPundI(leistung, strom);
+            } else if (spannung != 0 && widerstand != 0) {
+                leistung = pAusUundR(spannung, widerstand);
+                strom = iAusUundR(spannung, widerstand);
+            } else if (leistung != 0 && spannung != 0) {
+                widerstand = rAusUundP(spannung, leistung);
+                strom = iAusPundU(leistung, spannung);
+            }
         }
     }
 
