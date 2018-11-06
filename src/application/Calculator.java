@@ -77,6 +77,18 @@ public class Calculator {
     } else if (strom != 0 && widerstand != 0) {
       spannung = uAusRundI(widerstand, strom);
       leistung = pAusRundI(widerstand, strom);
+    } else if (widerstand != 0 && spannung != 0) {
+      leistung = pAusUundR(spannung, widerstand);
+      strom = iAusUundR(spannung, widerstand);
+    } else if (spannung != 0 && leistung != 0) {
+      strom = iAusPundU(leistung, spannung);
+      widerstand = rAusUundP(leistung, spannung);
+    } else if (leistung != 0 && widerstand != 0) {
+      spannung = uAusPundR(leistung, widerstand);
+      strom = iAusPundR(leistung, widerstand);
+    } else if (spannung != 0 && strom != 0) {
+      leistung = pAusUundI(spannung, strom);
+      widerstand = rAusUundI(spannung, strom);
     }
   }
 
