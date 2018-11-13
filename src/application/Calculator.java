@@ -93,10 +93,12 @@ public class Calculator {
       warnung = "Zu viele Felder ausgefüllt!";
     }
     if (leistung != 0 && widerstand != 0) {
-      System.out.println("leistung und wiederstand gesetzt: aufruf der Methoden mit"+leistung+"und mit "+widerstand);
+      System.out.println(
+          "leistung und wiederstand gesetzt: aufruf der Methoden mit" + leistung + "und mit " + widerstand);
       spannung = uAusPundR(leistung, widerstand);
       strom = iAusPundR(leistung, widerstand);
     } else if (spannung != 0 && strom != 0) {
+      System.out.println("spannung und strom gesetzt: aufruf der Methoden mit"+spannung+"und mit "+strom);
       leistung = pAusUundI(spannung, strom);
       widerstand = rAusUundI(spannung, strom);
     } else if (leistung != 0 && strom != 0) {
