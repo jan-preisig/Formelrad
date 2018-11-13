@@ -43,6 +43,7 @@ public class Main extends Application {
 
       TextField txLeistung = new TextField();
       txLeistung.relocate(100, 285);
+        txLeistung.setStyle("-fx-text-inner-color: red;");
       txLeistung.setFont(Font.font("Verdana", 15));
       root.getChildren().add(txLeistung);
 
@@ -53,6 +54,7 @@ public class Main extends Application {
 
       TextField txSpannung = new TextField();
       txSpannung.relocate(100, 325);
+        txSpannung.setStyle("-fx-text-inner-color: red;");
       txSpannung.setFont(Font.font("Verdana", 15));
       root.getChildren().add(txSpannung);
 
@@ -63,6 +65,7 @@ public class Main extends Application {
 
       TextField txStrom = new TextField();
       txStrom.relocate(100, 365);
+        txStrom.setStyle("-fx-text-inner-color: red;");
       txStrom.setFont(Font.font("Verdana", 15));
       root.getChildren().add(txStrom);
 
@@ -73,6 +76,7 @@ public class Main extends Application {
 
       TextField txWiderstand = new TextField();
       txWiderstand.relocate(100, 405);
+        txWiderstand.setStyle("-fx-text-inner-color: red;");
       txWiderstand.setFont(Font.font("Verdana", 15));
       root.getChildren().add(txWiderstand);
 
