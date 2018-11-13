@@ -91,9 +91,8 @@ public class Main extends Application {
       root.getChildren().add(lblWarnung);
 
       btnBerechnen.setOnAction(e -> {
-        Calculator myCalculator = new Calculator(Double.parseDouble(txLeistung.getText()),
-            Double.parseDouble(txSpannung.getText()), Double.parseDouble(txStrom.getText()),
-            Double.parseDouble(txWiderstand.getText()));
+          Calculator myCalculator = new Calculator(getValues(txLeistung),
+                  getValues(txSpannung), getValues(txStrom), getValues(txWiderstand));
         System.out.print("Vorher:  ");
         System.out.println(myCalculator.toString());
         myCalculator.calculate();
@@ -120,4 +119,11 @@ public class Main extends Application {
   public static void main(String[] args) {
     launch(args);
   }
+
+    private Double getValues(TextField field) {
+        if (!field.getText().trim().equals("")) {
+            return Double.parseDouble(field.getText());
+        }
+        return 0.0;
+    }
 }
