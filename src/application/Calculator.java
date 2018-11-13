@@ -93,21 +93,29 @@ public class Calculator {
       warnung = "Zu viele Felder ausgefüllt!";
     }
     if (leistung != 0 && widerstand != 0) {
+      System.out.println(
+          "leistung und wiederstand gesetzt: aufruf der Methoden mit" + leistung + "und mit " + widerstand);
       spannung = uAusPundR(leistung, widerstand);
       strom = iAusPundR(leistung, widerstand);
     } else if (spannung != 0 && strom != 0) {
+      System.out.println("spannung und strom gesetzt: aufruf der Methoden mit" + spannung + "und mit " + strom);
       leistung = pAusUundI(spannung, strom);
       widerstand = rAusUundI(spannung, strom);
     } else if (leistung != 0 && strom != 0) {
+      System.out.println("leistung und strom gesetzt: aufruf der Methoden mit" + leistung + "und mit " + strom);
       spannung = uAusPundI(leistung, strom);
       widerstand = rAusPundI(leistung, strom);
     } else if (strom != 0 && widerstand != 0) {
+      System.out.println("strom und wiederstand gesetzt: aufruf der Methoden mit" + strom + "und mit " + widerstand);
       spannung = uAusRundI(widerstand, strom);
       leistung = pAusRundI(widerstand, strom);
     } else if (widerstand != 0 && spannung != 0) {
+      System.out.println(
+          "spannung und wiederstand gesetzt: aufruf der Methoden mit" + spannung + "und mit " + widerstand);
       leistung = pAusUundR(spannung, widerstand);
       strom = iAusUundR(spannung, widerstand);
     } else if (spannung != 0 && leistung != 0) {
+      System.out.println("leistung und spannung gesetzt: aufruf der Methoden mit" + leistung + "und mit " + spannung);
       strom = iAusPundU(leistung, spannung);
       widerstand = rAusUundP(leistung, spannung);
     }
