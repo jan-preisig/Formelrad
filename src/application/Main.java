@@ -42,8 +42,9 @@ public class Main extends Application {
       root.getChildren().add(lbleistung);
 
       TextField txLeistung = new TextField();
+      txLeistung.setText("0");
       txLeistung.relocate(100, 285);
-        txLeistung.setStyle("-fx-text-inner-color: red;");
+      txLeistung.setStyle("-fx-text-inner-color: red;");
       txLeistung.setFont(Font.font("Verdana", 15));
       root.getChildren().add(txLeistung);
 
@@ -53,8 +54,9 @@ public class Main extends Application {
       root.getChildren().add(lblSpannung);
 
       TextField txSpannung = new TextField();
+      txSpannung.setText("0");
       txSpannung.relocate(100, 325);
-        txSpannung.setStyle("-fx-text-inner-color: red;");
+      txSpannung.setStyle("-fx-text-inner-color: red;");
       txSpannung.setFont(Font.font("Verdana", 15));
       root.getChildren().add(txSpannung);
 
@@ -64,8 +66,9 @@ public class Main extends Application {
       root.getChildren().add(lblStrom);
 
       TextField txStrom = new TextField();
+      txStrom.setText("0");
       txStrom.relocate(100, 365);
-        txStrom.setStyle("-fx-text-inner-color: red;");
+      txStrom.setStyle("-fx-text-inner-color: red;");
       txStrom.setFont(Font.font("Verdana", 15));
       root.getChildren().add(txStrom);
 
@@ -75,8 +78,9 @@ public class Main extends Application {
       root.getChildren().add(lblWiderstand);
 
       TextField txWiderstand = new TextField();
+      txWiderstand.setText("0");
       txWiderstand.relocate(100, 405);
-        txWiderstand.setStyle("-fx-text-inner-color: red;");
+      txWiderstand.setStyle("-fx-text-inner-color: red;");
       txWiderstand.setFont(Font.font("Verdana", 15));
       root.getChildren().add(txWiderstand);
 
@@ -91,9 +95,8 @@ public class Main extends Application {
       root.getChildren().add(lblWarnung);
 
       btnBerechnen.setOnAction(e -> {
-        Calculator myCalculator = new Calculator(Double.parseDouble(txLeistung.getText()),
-            Double.parseDouble(txSpannung.getText()), Double.parseDouble(txStrom.getText()),
-            Double.parseDouble(txWiderstand.getText()));
+          Calculator myCalculator = new Calculator(getValues(txLeistung),
+                  getValues(txSpannung), getValues(txStrom), getValues(txWiderstand));
         System.out.print("Vorher:  ");
         System.out.println(myCalculator.toString());
         myCalculator.calculate();
@@ -120,4 +123,11 @@ public class Main extends Application {
   public static void main(String[] args) {
     launch(args);
   }
+
+    private Double getValues(TextField field) {
+        if (!field.getText().trim().equals("")) {
+            return Double.parseDouble(field.getText());
+        }
+        return 0.0;
+    }
 }
