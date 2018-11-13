@@ -12,6 +12,7 @@ public class Calculator {
   private double strom;
   private double widerstand;
   private double spannung;
+  private String warnung = "";
 
   public Calculator(double leistung, double spannung, double strom, double widerstand) {
     super();
@@ -61,6 +62,10 @@ public class Calculator {
     return widerstand;
   }
 
+  public String getWarnung() {
+    return warnung;
+  }
+
   @Override
   public String toString() {
     return "Calculator [leistung=" + leistung + ", spannung=" + spannung + ", strom=" + strom + ", widerstand="
@@ -68,7 +73,32 @@ public class Calculator {
   }
 
   public void calculate() {
-    if (leistung != 0 && strom != 0) {
+    /* Hier auf Grund der vorhanden Werte entscheiden
+     * welche Methode unten aufgerufen werden muss.
+     */
+    int countSet = 0;
+    if (leistung != 0) {
+      countSet++;
+    }
+    if (strom != 0) {
+      countSet++;
+    }
+    if (widerstand != 0) {
+      countSet++;
+    }
+    if (spannung != 0) {
+      countSet++;
+    }
+    if (countSet > 2) {
+      warnung = "Zu viele Felder ausgefüllt!";
+    }
+    if (leistung != 0 && widerstand != 0) {
+      spannung = uAusPundR(leistung, widerstand);
+      strom = iAusPundR(leistung, widerstand);
+    } else if (spannung != 0 && strom != 0) {
+      leistung = pAusUundI(spannung, strom);
+      widerstand = rAusUundI(spannung, strom);
+    } else if (leistung != 0 && strom != 0) {
       spannung = uAusPundI(leistung, strom);
       widerstand = rAusPundI(leistung, strom);
     } else if (strom != 0 && widerstand != 0) {
@@ -80,12 +110,6 @@ public class Calculator {
     } else if (spannung != 0 && leistung != 0) {
       strom = iAusPundU(leistung, spannung);
       widerstand = rAusUundP(leistung, spannung);
-    } else if (leistung != 0 && widerstand != 0) {
-      spannung = uAusPundR(leistung, widerstand);
-      strom = iAusPundR(leistung, widerstand);
-    } else if (spannung != 0 && strom != 0) {
-      leistung = pAusUundI(spannung, strom);
-      widerstand = rAusUundI(spannung, strom);
     }
   }
 
