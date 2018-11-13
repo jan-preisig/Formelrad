@@ -102,10 +102,11 @@ public class Calculator {
       leistung = pAusUundI(spannung, strom);
       widerstand = rAusUundI(spannung, strom);
     } else if (leistung != 0 && strom != 0) {
-      System.out.println("leistung und strom gesetzt: aufruf der Methoden mit"+leistung+"und mit "+strom);
+      System.out.println("leistung und strom gesetzt: aufruf der Methoden mit" + leistung + "und mit " + strom);
       spannung = uAusPundI(leistung, strom);
       widerstand = rAusPundI(leistung, strom);
     } else if (strom != 0 && widerstand != 0) {
+      System.out.println("strom und wiederstand gesetzt: aufruf der Methoden mit"+strom+"und mit "+widerstand);
       spannung = uAusRundI(widerstand, strom);
       leistung = pAusRundI(widerstand, strom);
     } else if (widerstand != 0 && spannung != 0) {
